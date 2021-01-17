@@ -2,27 +2,27 @@ using System;
 
 namespace Function
 {
-    public enum SortOrder { Ascending, Descending }
+    public enum SortOrder { Ascending, Descending }   
     public static class Function
     {
-          public static bool IsSorted(int[] array, String order)
+        public static bool IsSorted(int[] array, SortOrder order)
         {
-            String factOrder = "0";
+            int count = 0;
             for (int i = 0; i < array.Length - 1; i++)
             {
-                if (array[i] <= array[i + 1]) factOrder = "Ascending";
+                if (array[i] <= array[i + 1] && order == SortOrder.Ascending) count++;
                 else { break; }
             }
-            for (int i = 0; i < array.Length - 1; i++)
+            for (int j = 0; j < array.Length - 1; j++)
             {
-                if (array[i] >= array[i + 1]) factOrder = "Descending";
+                if (array[j] >= array[j + 1] && order == SortOrder.Descending) count++;
                 else { break; }
             }
-            if (order == factOrder) return true;
-            return false;
+            if (count == array.Length - 1) return true;
+            else return false;
         }
 
-        public static void Transform(int[] array, String order)
+        public static void Transform(int[] array, SortOrder order)
         {
             if (IsSorted(array, order) == true)
             {
@@ -44,20 +44,22 @@ namespace Function
             return result;
         }
 
-        public static double SumGeometricElements (double a, double t, double alim)
+        public static double SumGeometricElements(double a, double t, double alim)
         {
-             double summ = a;
-            if (t< 1 && t> 0) 
+            double summ = a;
+            double def = 0;
+            if (t < 1 && t > 0 && a > alim)
             {
-                for (double an = a* t; an > alim; an = a* t)
+                for (double an = a * t; an > alim; an = a * t)
                 {
                     summ = summ + an;
-                    a1 = an;
-                    Console.WriteLine(an + " - an " + summ + " - sum");
+                    a = an;                  
                 }
-            return summ;
+                return summ;
             }
-            else return summ;
+            else return def;
         }
     }
+
 }
+
