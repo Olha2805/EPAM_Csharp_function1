@@ -62,6 +62,4 @@ namespace Function
             else return summ;
         }
     }
-
-    }
 }
