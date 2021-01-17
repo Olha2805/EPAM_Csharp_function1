@@ -54,7 +54,6 @@ namespace Function
                 {
                     summ = summ + an;
                     a = an;
-                    Console.WriteLine(an + " - an " + summ + " - sum");
                 }
                 return summ;
             }
