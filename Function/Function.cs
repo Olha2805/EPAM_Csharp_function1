@@ -5,7 +5,7 @@ namespace Function
     public enum SortOrder { Ascending, Descending }
     public static class Function
     {
-          public static bool IsSorted(int[] array, String order)
+          public static bool IsSorted(int[] array, var order)
         {
             String factOrder = "0";
             for (int i = 0; i < array.Length - 1; i++)
@@ -22,9 +22,8 @@ namespace Function
             return false;
         }
 
-        public static void Transform(int[] array, order)
+        public static int Transform(int[] array, var order)
         {
-            int defaultReturn = 0;
             if (IsSorted(array, order) == true)
             {
                 for (int i = 0; i < array.Length; i++)
@@ -33,7 +32,7 @@ namespace Function
                 }
                 return array;
             }
-            else return defaultReturn;
+            else return array;
         }
 
         public static double MultArithmeticElements(double a, double t, int n)
